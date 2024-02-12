@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript</title>
+  </head>
+  <body>
+    <p>JavaScript Practice</p>
+  </body>
+</html>
+<script type="text/JavaScript">
+  //   Program to cherck Palindrome.
+  function isPalindrome(str) {
+    if(str.length===1|| str.length===0) return true;
+    if(str[0]===str.slice(-1)) return isPalindrome(str(1,-1))
+    return false;
+
+  }
+  let str = prompt('String to Check');
+  if(isPalindrome(str)){
+    document.write(str + " is a Palindrome.");
+  }else{
+    document.write(str + " is not a Palindrome.");
+  }
+
+</script>
