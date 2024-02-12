@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Restructure Array</title>
+    </head>
+    <body>
+        
+    </body>
+</html>
+<script type="text/javascript">
+    var string=[2, "b", 4, "d", 3, "a", "c", "e", 5, 1];
+var nums=[];
+var alpha=[];
+for(let i=0;i<string.length;i++){
+    if(string[i]>=0){
+        nums.push(string[i]);
+    }else{
+        alpha.push(string[i]);
+    }
+}
+console.log(nums);
+console.log(alpha);
+nums=nums.concat(alpha);
+console.log("final: "+ nums);
+document.write("Given array: " +string);
+document.write("<br>");
+document.write("Restructured: "+nums);
+
+
+</script>
