@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>2D Boolean Array</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function maxOnesRow(matrix) {
+    let maxRow = -1;
+    let maxOnes = 0;
+
+    let row = 0;
+    let col = matrix[0].length - 1;
+
+    while (row < matrix.length && col >= 0) {
+      if (matrix[row][col] == 1) {
+        col--;
+        if (matrix[row].length - col > maxOnes) {
+          maxOnes = matrix[row].length - col;
+          maxRow = row;
+        }
+      } else {
+        row++;
+      }
+    }
+    return maxRow;
+  }
+  let boolMatrix = [
+    [0, 0, 1, 1],
+    [0, 1, 1, 1],
+    [0, 0, 0, 1],
+    [1, 1, 1, 1],
+  ];
+  console.log(maxOnesRow(boolMatrix));
+</script>
