@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Whether an array is subset of another array</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  let subset = [];
+  function isSubset(superset, subset) {
+    if (subset.length > superset.length) {
+      return false;
+    }
+    let commonElements = [];
+
+    for (let i = 0; i < subset.length; i++) {
+      if (superset.includes(subset[i])) {
+        commonElements.push(subset[i]);
+      }
+    }
+    return commonElements.length == subset.length;
+  }
+
+  let sub = [1, 2, 3, 4];
+  let array = [1, 2, 3, 4, 5]; 
+  console.log(sub);
+  console.log(array);
+if(isSubset(array,sub)){
+    document.write(sub + " is a subset of "+ array);
+}
+  
+</script>
