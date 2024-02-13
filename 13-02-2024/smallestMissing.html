@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Smallest Missing Number from an unsorted Array</title>
-    </head>
-    <body>
-        
-    </body>
+  <head>
+    <title>Smallest Missing Number from an unsorted Array</title>
+  </head>
+  <body></body>
 </html>
 <script>
-    // Function to check smallest missing numbver from an unsorted array.
-    function missingNum(array){
-        array.sort((a,b)=>a-b);
-        let answer=1;
-        for(let i=0;i<array.length;i++){
-            if(array[i]==answer){
-                answer++;
-            }
-        }
-        return answer;
+  // Function to check smallest missing numbver from an unsorted array.
+  function missingNum(array) {
+    array.sort((a, b) => a - b);
+    let answer = 1;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] == answer) {
+        answer++;
+      }
     }
+    return answer;
+  }
+
+  let arr = prompt("Enter the list of numbers");
+  let arrayMiss = arr.split(" ");
+  document.write("Give array: " +arrayMiss);
+  document.write( "<br> Smallest missing Number from unsorted array " +
+      arrayMiss +
+      " is " +
+      missingNum(arrayMiss)
+  );
 </script>
