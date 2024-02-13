@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Smallest Missing Number from an unsorted Array</title>
+    </head>
+    <body>
+        
+    </body>
+</html>
+<script>
+    // Function to check smallest missing numbver from an unsorted array.
+    function missingNum(array){
+        array.sort((a,b)=>a-b);
+        let answer=1;
+        for(let i=0;i<array.length;i++){
+            if(array[i]==answer){
+                answer++;
+            }
+        }
+        return answer;
+    }
+</script>
