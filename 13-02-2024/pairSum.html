@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pair whose sum is closest</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Function to find the pair whose sum is closest to x.
+  function closestPair(arr, x) {
+    let left = 0;
+    let right = 0;
+
+    let lindex = 0;
+    let rindex = arr.length - 1;
+    let diff = Number.MAX_VALUE;
+
+    while (rindex > lindex) {
+      if (Math.abs(arr[lindex] + arr[rindex] - x) < diff) {
+        left = lindex;
+        right = rindex;
+        diff = Math.abs(arr[lindex] + arr[rindex] - x);
+      }
+      if (arr[lindex] + arr[rindex] > x) {
+        rindex--;
+      } else {
+        lindex++;
+      }
+    }
+    console.log(arr[left]);
+    console.log(arr[right]);
+    return document.write("Closest pair are: " + arr[left] + " " + arr[right]);
+  }
+
+  let arr = [10, 22, 28, 29, 30, 40],
+    x = 54;
+  closestPair(arr, x);
+</script>
