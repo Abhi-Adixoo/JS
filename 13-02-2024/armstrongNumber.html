@@ -1,0 +1,44 @@
+<!-- A js Program to check whether the given number is an Armstrong Number -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Armstrong Number</title>
+    </head>
+    <body>
+        
+    </body>
+</html>
+<script>
+    // Power function
+    function pow(x, n) {
+  let result = x;
+
+  for (let i = 1; i < n; i++) {
+    result *= x;
+  }
+
+  return result;
+}
+    // Function to Check an Armstrong Number.
+    function isArmstrong(num){
+        // Calculate number of digits/Order.
+        let p=Math.floor(Math.log10(num) + 1); 
+        let sum=0;
+        let temp=num;
+        while(temp>0){
+            let digit=temp%10;
+            sum=sum+pow(digit,p);
+            temp = parseInt(temp / 10, 10);        }
+        return sum== num;
+    }
+
+    // Test Code
+    let number=prompt("Enter the number to be Checked");
+    let answer=isArmstrong(number);
+    if(answer){
+        document.write(number + " is an Armstrong Number");
+    } else {
+        document.write(number + " is not an Armstrong Number");
+    }
+
+</script>
