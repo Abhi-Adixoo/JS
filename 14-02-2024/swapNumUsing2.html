@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Swap two number without</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Swap two numbers without using third variable.
+  function swapNum(num1, num2) {
+    document.write("Initially : " + " num1= " + num1 + " num2= " + num2);
+    num1 = num1 + num2;
+    num2 = num1 - num2;
+    num1 = num1 - num2;
+    document.write("<br>Finally : " + " num1= " + num1 + " num2= " + num2);
+  }
+  let num1 = parseInt(prompt("Enter First Number:"));
+  let num2 = parseInt(prompt("Enter Second Number:"));
+
+  swapNum(num1, num2);
+</script>
