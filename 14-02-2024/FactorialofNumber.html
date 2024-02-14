@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Function to calculate factorial.
+  function numFactorial(num) {
+    if (num < 0) {
+      return "Please Choose a valid positive integer";
+    } else if (num < 2) {
+      return 1;
+    } else {
+      return num * numFactorial(num - 1);
+    }
+  }
+
+  let num = prompt("Enter the number to find Factorial");
+  alert(numFactorial(num));
+</script>
