@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Find the largest among three</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Function to find the largest among
+  function largestAmongThree(num1, num2, num3) {
+    if (num1 >= num2 && num1 >= num3) {
+      return num1;
+    } else if (num2 >= num1 && num2 >= num3) {
+      return num2;
+    } else if (num3 >= num1 && num3 >= num2) {
+      return num3;
+    }
+  }
+
+  //   Test Code
+  let num1 = 5,
+    num2 = 11,
+    num3 = -2;
+  document.write(
+    largestAmongThree(num1, num2, num3) + " is largest among all "
+  );
+</script>
