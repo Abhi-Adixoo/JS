@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  let num1 = prompt("Enter the first number:");
+  let oper = prompt("Choose operation +,-,*,/,*,^:");
+  let num2 = prompt("Enter the second number:");
+
+  switch (oper) {
+    case "+":
+      let sum = parseInt(num1) + parseInt(num2);
+      alert(num1 + " + " + num2 + " = " + sum);
+      break;
+    case "-":
+      let diff = num1 - num2;
+      alert(num1 + " - " + num2 + " = " + diff);
+      break;
+    case "*":
+      let mul = num1 * num2;
+      alert(num1 + " * " + num2 + " = " + mul);
+      break;
+    case "/":
+      let div = num1 / num2;
+      alert(num1 + " / " + num2 + " = " + div.toFixed(2));
+      break;
+    case "%":
+      let rem = num1 % num2;
+      alert(num1 + " % " + num2 + " = " + rem);
+      break;
+    case "^":
+      let pow = num1 ** num2;
+      alert(num1 + " raised to the power " + num2 + " = " + pow);
+      break;
+  }
+</script>
