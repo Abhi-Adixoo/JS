@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Odd Even</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Function to find odd-even
+  function isOddEven(num) {
+    if (num < 0) {
+      alert("Enter a Positive Integer");
+    } else if (num % 2 == 0) {
+      alert(num + " is an Even number");
+    } else {
+      alert(num + " is an Odd number");
+    }
+  }
+  let number = prompt("Enter the number");
+  isOddEven(number);
+</script>
