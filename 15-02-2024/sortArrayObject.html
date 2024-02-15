@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sort Array of Objects Based on Property Value</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Function to compare
+  function sortObj(user1, user2) {
+    const name1 = user1.name.toUpperCase();
+    const name2 = user2.name.toUpperCase();
+    let flag = 0;
+
+    if (name1 > name2) {
+      flag = 1;
+    } else if (name1 < name2) {
+      flag = -1;
+    }
+    return flag;
+  }
+
+  let user = [
+    { name: "Faizan", age: "24" },
+    { name: "Rampal", age: "23" },
+    { name: "Anupam", age: "22" },
+    { name: "Akash", age: "25" },
+  ];
+
+  console.log(user.sort(sortObj));
+</script>
