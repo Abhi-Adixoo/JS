@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Compare Elements of an Array</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function compareArray(arr1, arr2) {
+    if (arr1.length != arr2.length) {
+      return false;
+    } else {
+      let result = false;
+      arr1.sort((a, b) => a - b);
+      arr2.sort((a, b) => a - b);
+      for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] != arr2[i]) {
+          return false;
+        } else {
+          result = true;
+        }
+      }
+      return result;
+    }
+  }
+  let arr1 = [1, 4, 6, 2, 3];
+  let arr2 = [1, 4, 6, 4, 3];
+  if (compareArray(arr1, arr2)) {
+    alert(arr1 + " and " + arr2 + " elements are same");
+  } else {
+    alert(arr1 + " and " + arr2 + " elements are Diffirent");
+  }
+</script>
