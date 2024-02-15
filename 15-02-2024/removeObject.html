@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Remove a property from an Object</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  let user = {
+    name: "",
+    age: "",
+    Nationality: "",
+    Mobile: "",
+    email: "",
+    address: "",
+  };
+  document.write("Initially properties of Object:");
+  for (key in user) {
+    document.write("<br>" + key);
+  }
+
+  //   Remove object property
+  delete user.Nationality;
+  delete user.email;
+
+  document.write("<br><br>Finally properties of Object:");
+  for (key in user) {
+    document.write("<br>" + key);
+  }
+</script>
