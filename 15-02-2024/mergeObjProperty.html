@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Merge Object properties</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Function to merge the object properties.
+  function mergePropDup(obj1, obj2) {
+    obj1 = Object.assign(obj1, obj2);
+  }
+
+  let user = {
+    name: "",
+    age: "",
+    mobile: "",
+  };
+  let admin = {
+    name: "",
+    role: "",
+    profile: "",
+  };
+  document.write("Objects Initially:");
+  for (key in admin) {
+    document.write("<br>" + key);
+  }
+  for (key in user) {
+    document.write("<br>" + key);
+  }
+  document.write("<br>Objects Properties Finally:");
+  mergePropDup(admin, user);
+  for (key in admin) {
+    document.write("<br>" + key);
+  }
+</script>
