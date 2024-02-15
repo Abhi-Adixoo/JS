@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Generate a Range of Numbers and Characters</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Function to generate number and charachters.
+  function alphaNum(start, end) {
+    let series = [];
+    if (typeof start == "number" && typeof end == "number") {
+      for (let i = start; i <= end; i++) {
+        series.push(i);
+      }
+    }
+    if (typeof start == "string" && typeof end == "string") {
+      // Upper case
+      if (start.charCodeAt(0) >= 65 && end.charCodeAt(0) <= 90) {
+        for (let i = start.charCodeAt(0); i <= end.charCodeAt(0); i++) {
+          series.push(String.fromCharCode(i));
+        }
+      }
+      //   Lower case
+      if (start.charCodeAt(0) >= 97 && end.charCodeAt(0) <= 122) {
+        for (let i = start.charCodeAt(0); i <= end.charCodeAt(0); i++) {
+          series.push(String.fromCharCode(i));
+        }
+      }
+    }
+    return series;
+  }
+  console.log(alphaNum(5, 10));
+  console.log(alphaNum("B", "X"));
+</script>
