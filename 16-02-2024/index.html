@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Simple Calculator</title>
+    <style>
+      .calculator {
+        width: 250px;
+        margin: 20px auto;
+        background-color: black;
+        border: 2px solid #1b1a1a;
+        border-radius: 5px;
+        padding: 10px;
+        text-align: center;
+      }
+
+      #display {
+        width: 95%;
+        margin-bottom: 10px;
+        padding: 5px;
+        font-size: 20px;
+      }
+
+      .buttons button {
+        width: 45px;
+        height: 45px;
+        margin: 5px;
+        border-radius: 4em;
+        font-size: 20px;
+        border: 2px solid goldenrod;
+        background-color: lightgoldenrodyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <input type="text" id="display" readonly />
+      <div class="buttons">
+        <button onclick="appendNumber('1')">1</button>
+        <button onclick="appendNumber('2')">2</button>
+        <button onclick="appendNumber('3')">3</button>
+        <button onclick="appendOperator('+')">+</button>
+        <button onclick="appendNumber('4')">4</button>
+        <button onclick="appendNumber('5')">5</button>
+        <button onclick="appendNumber('6')">6</button>
+        <button onclick="appendOperator('-')">-</button>
+        <button onclick="appendNumber('7')">7</button>
+        <button onclick="appendNumber('8')">8</button>
+        <button onclick="appendNumber('9')">9</button>
+        <button onclick="appendOperator('*')">*</button>
+        <button onclick="appendNumber('0')">0</button>
+        <button onclick="appendNumber('00')">00</button>
+        <button onclick="appendDecimal('.')">.</button>
+        <button onclick="appendOperator('/')">/</button>
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="appendOperator('%')">%</button>
+        <button onclick="appendOperator('**')">^</button>
+        <button onclick="calculate()">=</button>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  let displayValue = "";
+
+  function appendNumber(number) {
+    displayValue += number;
+    updateDisplay();
+  }
+
+  function appendOperator(operator) {
+    displayValue += operator;
+    updateDisplay();
+  }
+
+  function clearDisplay() {
+    displayValue = "";
+    updateDisplay();
+  }
+
+  function appendDecimal() {
+    displayValue += ".";
+    updateDisplay();
+  }
+
+  function updateDisplay() {
+    document.getElementById("display").value = displayValue;
+  }
+
+  function calculate() {
+    const operators = ["+", "-", "*", "/", "%", "**"];
+    let result = 0;
+    let currentOperator = "";
+    let numbers = displayValue.split(/[+\-*/%**]/);
+
+    for (let i = 0; i < displayValue.length; i++) {
+      if (operators.includes(displayValue[i])) {
+        currentOperator = displayValue[i];
+        break;
+      }
+    }
+
+    switch (currentOperator) {
+      case "+":
+        result = parseFloat(numbers[0]) + parseFloat(numbers[1]);
+        break;
+      case "-":
+        result = parseFloat(numbers[0]) - parseFloat(numbers[1]);
+        break;
+      case "*":
+        result = parseFloat(numbers[0]) * parseFloat(numbers[1]);
+        break;
+      case "/":
+        if (parseFloat(numbers[1]) !== 0) {
+          result = parseFloat(numbers[0]) / parseFloat(numbers[1]);
+        } else {
+          result = "Error";
+        }
+      case "**":
+        result = parseFloat(numbers[0]) * parseFloat(numbers[1]);
+        break;
+      case "%":
+        result = parseInt(numbers[0]) % parseInt(numbers[1]);
+        break;
+
+        break;
+      default:
+        result = "Error";
+        break;
+    }
+
+    displayValue = result.toString();
+    updateDisplay();
+  }
+</script>
