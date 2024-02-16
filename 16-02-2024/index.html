@@ -53,7 +53,7 @@
         <button onclick="appendOperator('/')">/</button>
         <button onclick="clearDisplay()">C</button>
         <button onclick="appendOperator('%')">%</button>
-        <button onclick="appendOperator('**')">^</button>
+        <button onclick="appendOperator('^')">^</button>
         <button onclick="calculate()">=</button>
       </div>
     </div>
@@ -87,48 +87,68 @@
   }
 
   function calculate() {
-    const operators = ["+", "-", "*", "/", "%", "**"];
-    let result = 0;
-    let currentOperator = "";
-    let numbers = displayValue.split(/[+\-*/%**]/);
+    const operators = ["^", "%", "*", "/", "+", "-"];
+    let numbers = [];
+    let ops = [];
+    let currentNumber = "";
 
     for (let i = 0; i < displayValue.length; i++) {
       if (operators.includes(displayValue[i])) {
-        currentOperator = displayValue[i];
-        break;
+        if (currentNumber !== "") {
+          numbers.push(parseFloat(currentNumber));
+          currentNumber = "";
+        }
+        ops.push(displayValue[i]);
+      } else {
+        currentNumber += displayValue[i];
       }
     }
 
-    switch (currentOperator) {
-      case "+":
-        result = parseFloat(numbers[0]) + parseFloat(numbers[1]);
-        break;
-      case "-":
-        result = parseFloat(numbers[0]) - parseFloat(numbers[1]);
-        break;
-      case "*":
-        result = parseFloat(numbers[0]) * parseFloat(numbers[1]);
-        break;
-      case "/":
-        if (parseFloat(numbers[1]) !== 0) {
-          result = parseFloat(numbers[0]) / parseFloat(numbers[1]);
-        } else {
-          result = "Error";
-        }
-      case "**":
-        result = parseFloat(numbers[0]) * parseFloat(numbers[1]);
-        break;
-      case "%":
-        result = parseInt(numbers[0]) % parseInt(numbers[1]);
-        break;
-
-        break;
-      default:
-        result = "Error";
-        break;
+    if (currentNumber !== "") {
+      numbers.push(parseFloat(currentNumber));
     }
 
-    displayValue = result.toString();
+    operators.forEach((operator) => {
+      while (ops.includes(operator)) {
+        let operatorIndex = ops.indexOf(operator);
+        let num1 = numbers[operatorIndex];
+        let num2 = numbers[operatorIndex + 1];
+        let result;
+
+        switch (operator) {
+          case "+":
+            result = num1 + num2;
+            break;
+          case "-":
+            result = num1 - num2;
+            break;
+          case "*":
+            result = num1 * num2;
+            break;
+          case "/":
+            if (num2 !== 0) {
+              result = num1 / num2;
+            } else {
+              result = "Divided by 0";
+            }
+            break;
+          case "^":
+            result = num1 ** num2;
+            break;
+          case "%":
+            result = num1 % num2;
+            break;
+          default:
+            result = "Error";
+            break;
+        }
+
+        numbers.splice(operatorIndex, 2, result);
+        ops.splice(operatorIndex, 1);
+      }
+    });
+
+    displayValue = numbers[0].toString();
     updateDisplay();
   }
 </script>
